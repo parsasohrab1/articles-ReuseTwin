@@ -20,7 +20,8 @@ from reusetwin.policies import interval_policy, optimise, threshold_policy
 DAYS, MEAS_SD = 365, 0.03
 
 
-def evaluate(policy, scale, meas_sd, seeds=100, p=Params()):
+def evaluate(policy, scale, meas_sd, seeds=100, p=None):
+    p = p or Params()
     rows = []
     for s in range(seeds):
         rng = np.random.default_rng(5000 + s)
