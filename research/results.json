@@ -1,0 +1,74 @@
+{
+  "note": "synthetic RO twin; policies tuned at fouling scale 1.0 on 20 training years",
+  "tuned": {
+    "interval_days": 80.0,
+    "threshold_true_k": 0.7400000000000002,
+    "threshold_noisy_k": 0.7000000000000002
+  },
+  "fouling_x1.0": {
+    "interval_tuned": {
+      "cost_per_m3": 0.10354842720199825,
+      "cleanings": 4.0,
+      "min_k": 0.6691597439450315
+    },
+    "threshold_true_k": {
+      "cost_per_m3": 0.10354315588324284,
+      "cleanings": 4.94,
+      "min_k": 0.7405083735732024
+    },
+    "threshold_noisy_k": {
+      "cost_per_m3": 0.1037255136799666,
+      "cleanings": 4.51,
+      "min_k": 0.709940467240804
+    },
+    "interval_30d_practice": {
+      "cost_per_m3": 0.11508846270746581,
+      "cleanings": 12.0,
+      "min_k": 0.7440025900020631
+    }
+  },
+  "fouling_x1.5": {
+    "interval_tuned": {
+      "cost_per_m3": 0.11181961570921613,
+      "cleanings": 4.0,
+      "min_k": 0.5559774938148102
+    },
+    "threshold_true_k": {
+      "cost_per_m3": 0.11177145646451254,
+      "cleanings": 8.6,
+      "min_k": 0.7404823240674044
+    },
+    "threshold_noisy_k": {
+      "cost_per_m3": 0.11039682310160433,
+      "cleanings": 7.34,
+      "min_k": 0.7026773354802505
+    },
+    "interval_30d_practice": {
+      "cost_per_m3": 0.11796901280369171,
+      "cleanings": 12.0,
+      "min_k": 0.6910553429235062
+    }
+  },
+  "fouling_x0.6": {
+    "interval_tuned": {
+      "cost_per_m3": 0.09756414823594473,
+      "cleanings": 4.0,
+      "min_k": 0.7756943835912996
+    },
+    "threshold_true_k": {
+      "cost_per_m3": 0.09826580853976122,
+      "cleanings": 2.64,
+      "min_k": 0.7404991394516116
+    },
+    "threshold_noisy_k": {
+      "cost_per_m3": 0.09844384865354255,
+      "cleanings": 2.39,
+      "min_k": 0.7181218676695217
+    },
+    "interval_30d_practice": {
+      "cost_per_m3": 0.11287136284830795,
+      "cleanings": 12.0,
+      "min_k": 0.786643649741928
+    }
+  }
+}
