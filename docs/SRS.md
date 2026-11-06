@@ -8,5 +8,6 @@
 | FR-4 | Interval and threshold cleaning policies | `policies.py` | `test_threshold_policy_keeps_k_above_threshold` |
 | FR-5 | Grid optimisation of a policy parameter | `policies.py` | `test_optimum_is_interior` |
 | FR-6 | Estimate the fouling rate and the days to a threshold from noisy permeability | `estimator.py` | `test_rate_estimator_recovers_known_rate`, `test_days_to_threshold_edge_cases` |
+| FR-7 | Fit that rate on the public daily proxy and compare frozen cleaning rules | `publicdata.py` | `test_results_json_matches_a_fresh_real_run` |
 
-Parameters (all assumed, `model.py`): fouling rate 0.004 per day at index 1, irreversible loss 1.5% per cleaning, energy 1 kWh/m3 at clean state and proportional to 1/permeability, energy price 0.08, cleaning cost 150 plus one day of downtime valued at 0.5 per m3, membrane replacement 25 000 below clean level 0.6, flow 2000 m3/day.
+Synthetic parameters (`model.py`): fouling rate 0.004 per day at index 1, irreversible loss 1.5% per cleaning, energy 1 kWh/m3 at clean state and proportional to 1/permeability, energy price 0.08, cleaning cost 150 plus one day of downtime valued at 0.5 per m3, membrane replacement 25 000 below clean level 0.6, flow 2000 m3/day. The public-series scenario replaces the fouling rate with the fitted median and sets irreversible loss to 0. The other prices stay assumed.

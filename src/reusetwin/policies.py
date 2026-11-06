@@ -30,3 +30,16 @@ def optimise(p: Params, days: int, seeds: int, kind: str, grid: np.ndarray, meas
         if c < best_cost:
             best, best_cost = float(g), c
     return best, best_cost
+
+
+def optimise_on_feed(p: Params, feed: np.ndarray, kind: str, grid: np.ndarray,
+                     meas_sd: float = 0.0, seed: int = 0) -> tuple[float, float]:
+    """Lowest-cost grid value on one feed path. Returns (value, cost per m3)."""
+    best, best_cost = None, np.inf
+    rng = np.random.default_rng(seed)
+    for g in grid:
+        pol = interval_policy(int(g)) if kind == "interval" else threshold_policy(float(g))
+        cost = simulate(len(feed), pol, p, feed, rng, meas_sd)["cost_per_m3"]
+        if cost < best_cost:
+            best, best_cost = float(g), float(cost)
+    return best, best_cost

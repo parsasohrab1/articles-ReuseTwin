@@ -1,7 +1,7 @@
 [project]
 name = "reusetwin"
 version = "0.1.0"
-description = "Reverse-osmosis fouling digital twin and cleaning-schedule optimisation for industrial water reuse (simulation-validated, TRL 4)"
+description = "Reverse-osmosis fouling digital twin and cleaning-schedule comparison (TRL 4)"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24"]
 
