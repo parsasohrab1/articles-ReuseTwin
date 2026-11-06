@@ -42,10 +42,28 @@ def test_split_cutoff_is_eighty_percent_of_the_span():
     assert split_cutoff(6, 106) == pytest.approx(86)
 
 
+def _same_report(saved, fresh, path=""):
+    """Floats may differ in the last bits across BLAS/NumPy builds. Decisions may not."""
+    if isinstance(saved, dict):
+        assert set(saved) == set(fresh), path
+        for key in saved:
+            _same_report(saved[key], fresh[key], f"{path}.{key}")
+        return
+    if isinstance(saved, list):
+        assert len(saved) == len(fresh), path
+        for i, item in enumerate(saved):
+            _same_report(item, fresh[i], f"{path}[{i}]")
+        return
+    if isinstance(saved, float):
+        assert fresh == pytest.approx(saved, rel=1e-9, abs=1e-12), path
+        return
+    assert saved == fresh, path
+
+
 def test_results_json_matches_a_fresh_real_run():
     fresh = json.loads(json.dumps(build_real_report(ROOT)))
     saved = json.loads((ROOT / "research" / "results.json").read_text(encoding="utf-8"))
-    assert saved["real"] == fresh
+    _same_report(saved["real"], fresh)
     text = (ROOT / "docs" / "TRL.md").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     kf = f"{fresh['fit']['kf_per_day']:.6g}"
