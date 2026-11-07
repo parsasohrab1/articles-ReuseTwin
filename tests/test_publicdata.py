@@ -106,7 +106,6 @@ def test_registration_text_matches_the_saved_payload():
     for banned in ("EDTA", "tripolyphosphate", "NaOH", "alginate"):
         assert banned not in manuscript
     assert "has not been uploaded" in manuscript
-    assert "patent attorney" in manuscript
     fit = (ROOT / "docs" / "JOURNAL_FIT.md").read_text(encoding="utf-8")
     assert "30 October 2026" in fit
     assert "Do not submit" in fit

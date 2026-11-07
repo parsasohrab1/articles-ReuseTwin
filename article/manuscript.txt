@@ -8,7 +8,7 @@ Windows between cleanings are fit by a straight line on the logarithm of the pro
 
 The median training rate is 0.000146867 per day. 6 of 9 training windows have a positive rate. All 4 of 4 held-out windows have a negative rate. The mean absolute error of terminal proxy permeability is 0.0546853, and the mean error, predicted minus observed, is -0.0516526. The decay forecast sits below the later observations. On the training length, one clean at 310 days costs 0.0828942 per cubic metre against 0.0836993 for no cleaning. On a year, no cleaning costs 0.0821771, the tuned threshold does not fire, and a thirty-day calendar costs 0.102441. That ranking is a scenario on a rate the later windows do not support.
 
-The achievement recorded here is the negative hold-out, not a saving and not a plant design. This text has not been uploaded. A patent attorney has not confirmed that it discloses no claimed method.
+The achievement recorded here is the negative hold-out, not a saving and not a plant design. This text has not been uploaded.
 
 1. Data
 
@@ -48,7 +48,7 @@ Read the held-out rates before the cost rows. Every held-out window rises, so th
 
 5. What is withheld
 
-The manuscript states the public proxy, the log-linear rate, and the interval and threshold comparison already in this repository. It does not state cleaning chemistry. It has not been uploaded. A patent attorney has not confirmed that this wording discloses no claimed method.
+The manuscript states the public proxy, the log-linear rate, and the interval and threshold comparison already in this repository. It does not state cleaning chemistry. It has not been uploaded.
 
 Data availability
 

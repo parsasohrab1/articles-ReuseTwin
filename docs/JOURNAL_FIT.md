@@ -53,4 +53,4 @@ NREL steady state: 6005 rows, runtime max 5 minutes, cleaning column False, used
 
 Do not submit. The printed deadline is 30 October 2026, and this check is dated 7 November 2026. No file has been uploaded.
 
-Submission stays closed for a second reason as well. A patent attorney has not confirmed that `article/manuscript.txt` discloses no claimed method. The note is not a submission. The internal card is [REGISTRATION.md](REGISTRATION.md).
+The note is not a submission. The internal card is [REGISTRATION.md](REGISTRATION.md).

@@ -30,10 +30,9 @@ The journal Word template is not in this repository.
 
 ## Steps only an author can finish
 
-1. Ask a patent attorney to read `article/manuscript.txt` and confirm that it discloses no claimed method.
-2. For any new call, complete `docs/JOURNAL_FIT.md` again against that call's page. This call is closed.
-3. Paste the title, abstract, and author block into the form.
-4. Put the manuscript into the journal template and upload that file.
-5. Confirm the submission and keep the receipt.
+1. For any new call, complete `docs/JOURNAL_FIT.md` again against that call's page. This call is closed.
+2. Paste the title, abstract, and author block into the form.
+3. Put the manuscript into the journal template and upload that file.
+4. Confirm the submission and keep the receipt.
 
-Nothing in this repository has been uploaded. Steps 1 and 2 are open, so steps 3 to 5 stay closed.
+Nothing in this repository has been uploaded. Step 1 is open, so steps 2 to 4 stay closed.

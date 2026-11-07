@@ -122,8 +122,7 @@ def abstract_text(real: dict) -> str:
         ),
         (
             "The achievement recorded here is the negative hold-out, not a saving and "
-            "not a plant design. This text has not been uploaded. A patent attorney "
-            "has not confirmed that it discloses no claimed method."
+            "not a plant design. This text has not been uploaded."
         ),
     ]
     return "\n\n".join(paragraphs)
@@ -179,8 +178,7 @@ def manuscript_text(real: dict) -> str:
         (
             "The manuscript states the public proxy, the log-linear rate, and the "
             "interval and threshold comparison already in this repository. It does not "
-            "state cleaning chemistry. It has not been uploaded. A patent attorney has "
-            "not confirmed that this wording discloses no claimed method."
+            "state cleaning chemistry. It has not been uploaded."
         ),
         "",
         "Data availability",
