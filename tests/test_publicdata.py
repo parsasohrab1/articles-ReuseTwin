@@ -11,6 +11,7 @@ from reusetwin.publicdata import (
     segment_table,
     split_cutoff,
 )
+from reusetwin.report import END, START, abstract_text, measured_block
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -80,3 +81,32 @@ def test_results_json_matches_a_fresh_real_run():
     assert nrel["used_for_fit"] is False
     assert nrel["runtime_minutes_max"] < 24 * 60
     assert nrel["has_cleaning_column"] is False
+
+
+def test_registration_text_matches_the_saved_payload():
+    saved = json.loads((ROOT / "research" / "results.json").read_text(encoding="utf-8"))["real"]
+    block = measured_block(saved)
+    for relative in (
+        "README.md",
+        "docs/TRL.md",
+        "docs/ACHIEVEMENTS.md",
+        "docs/JOURNAL_FIT.md",
+        "docs/REGISTRATION.md",
+    ):
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        assert START in text and END in text
+        marked = text.split(START, 1)[1].split(END, 1)[0].strip()
+        assert marked == block
+    abstract = (ROOT / "article" / "abstract.md").read_text(encoding="utf-8")
+    manuscript = (ROOT / "article" / "manuscript.txt").read_text(encoding="utf-8")
+    assert abstract.strip() == abstract_text(saved).strip()
+    words = abstract.split()
+    assert 150 <= len(words) <= 400
+    assert "http" not in abstract
+    for banned in ("EDTA", "tripolyphosphate", "NaOH", "alginate"):
+        assert banned not in manuscript
+    assert "has not been uploaded" in manuscript
+    assert "patent attorney" in manuscript
+    fit = (ROOT / "docs" / "JOURNAL_FIT.md").read_text(encoding="utf-8")
+    assert "30 October 2026" in fit
+    assert "Do not submit" in fit

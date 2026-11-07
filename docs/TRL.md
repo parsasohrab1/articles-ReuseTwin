@@ -17,7 +17,31 @@ Split: eligible inter-CIP segments wholly before day 618 are train (9), wholly a
 | Held-out MAE of terminal K | 0.0546853 |
 | Held-out mean error (predicted minus observed) | -0.0516526 |
 
-The forecast decay is larger than the later windows, which rose. Irreversible loss per cleaning is not identified and is set to 0 in the scenario below. The feed index is fixed at 1 because the table has no separate fouling index.
+The forecast decay is larger than the later windows, which rose. Irreversible loss per cleaning is not identified and is set to 0 in the scenario below. The feed index is fixed at 1 because the table has no separate fouling index. The same counts, written by the study script:
+
+<!-- results:start -->
+Days 6 to 771. Cutoff 618.
+Eligible segments: train 9, test 4, crossed 3.
+Median training rate 0.000146867 per day. Positive training segments 6 of 9 (0.666667). Median residual sd 0.0534777.
+Held-out segments 4. Negative held-out rates 4 of 4. MAE of terminal K 0.0546853. Mean error, predicted minus observed, -0.0516526.
+Tuned interval 310 days. Tuned threshold 0.94. Plant median interval 40 days. Irreversible loss used 0. Identified: False.
+tuning 612 days, never: cost 0.0836993, cleanings 0, min K 0.914173.
+tuning 612 days, interval_30d: cost 0.102303, cleanings 20, min K 0.99575.
+tuning 612 days, interval_plant_median: cost 0.0966893, cleanings 15, min K 0.994289.
+tuning 612 days, interval_tuned: cost 0.0828942, cleanings 1, min K 0.955633.
+tuning 612 days, threshold_tuned: cost 0.0831645, cleanings 1, min K 0.940042.
+year 365 days, never: cost 0.0821771, cleanings 0, min K 0.947944.
+year 365 days, interval_30d: cost 0.102441, cleanings 12, min K 0.99575.
+year 365 days, interval_plant_median: cost 0.0967915, cleanings 9, min K 0.994289.
+year 365 days, interval_tuned: cost 0.0834172, cleanings 1, min K 0.955633.
+year 365 days, threshold_tuned: cost 0.0821771, cleanings 0, min K 0.947944.
+holdout 153 days, never: cost 0.0808997, cleanings 0, min K 0.977924.
+holdout 153 days, interval_30d: cost 0.102302, cleanings 5, min K 0.99575.
+holdout 153 days, interval_plant_median: cost 0.0933251, cleanings 3, min K 0.994289.
+holdout 153 days, interval_tuned: cost 0.0808997, cleanings 0, min K 0.977924.
+holdout 153 days, threshold_tuned: cost 0.0808997, cleanings 0, min K 0.977924.
+NREL steady state: 6005 rows, runtime max 5 minutes, cleaning column False, used for fit False.
+<!-- results:end -->
 
 Scenario under the assumed `Params` prices (not plant invoices). Policies are chosen on the 612-day training span, then frozen.
 

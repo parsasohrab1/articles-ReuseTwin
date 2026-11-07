@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from reusetwin.model import Params, feed_index, simulate
 from reusetwin.policies import interval_policy, optimise, threshold_policy
 from reusetwin.publicdata import build_real_report
+from reusetwin.report import write_registration
 
 DAYS, MEAS_SD = 365, 0.03
 
@@ -60,6 +61,7 @@ def main() -> None:
     args = ap.parse_args()
     out = {"synthetic": synthetic_study(), "real": build_real_report(ROOT)}
     Path(args.out).write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    write_registration(ROOT, out["real"])
     print(json.dumps(out, indent=1))
 
 
