@@ -1,0 +1,57 @@
+An exponential fouling rate does not predict later windows of one public seawater reverse-osmosis series
+
+Abstract
+
+This note asks whether an exponential permeability decay, fit on the early part of one public seawater reverse-osmosis series, predicts later windows and whether a permeability threshold then costs less than a fixed cleaning interval. The series is the de-identified daily indicator table and clean-in-place ledger in Zenodo deposit 10.5281/zenodo.21055948, licensed CC-BY-4.0. The raw ten-minute records and the plant prices are not in the deposit. A permeability proxy is the ratio of one plus the stored specific-flux deviation to one plus the stored net-driving-pressure deviation, on the trimmed daily basis. Those deviations are stored as non-negative numbers, so the proxy is biased high when a true deviation was negative.
+
+Windows between cleanings are fit by a straight line on the logarithm of the proxy. A window that contains the day at eighty percent of the span is unused. The rate used afterwards is the median of the earlier eligible windows. Interval and threshold rules are chosen on that training length with a feed index of one and with no irreversible loss, because a per-cleaning loss was not identified. Costs use the repository price assumptions, not invoices. The equation is the decay already stated in the repository model. Cleaning chemistry is not stated.
+
+The median training rate is 0.000146867 per day. 6 of 9 training windows have a positive rate. All 4 of 4 held-out windows have a negative rate. The mean absolute error of terminal proxy permeability is 0.0546853, and the mean error, predicted minus observed, is -0.0516526. The decay forecast sits below the later observations. On the training length, one clean at 310 days costs 0.0828942 per cubic metre against 0.0836993 for no cleaning. On a year, no cleaning costs 0.0821771, the tuned threshold does not fire, and a thirty-day calendar costs 0.102441. That ranking is a scenario on a rate the later windows do not support.
+
+The achievement recorded here is the negative hold-out, not a saving and not a plant design. This text has not been uploaded.
+
+1. Data
+
+Source: Su, Yi Hsiang (2026). Zenodo. https://doi.org/10.5281/zenodo.21055948. License: CC-BY-4.0. Proxy: (1 + flux_pct) / (1 + ndp_pct) on the n3 basis. Non-negative deviations bias this proxy high. Files and the sets that were screened and not fitted are named in data/DATA_LICENSE.md. The National Renewable Energy Laboratory steady-state file is a minutes-long transport test and is not used for the rate. Two Harvard sets under CC BY-NC-ND are not in this repository.
+
+2. Fit and comparison
+
+The rate is the slope of log permeability on day index, the estimator already in src/reusetwin/estimator.py. The twin steps the same exponential decay as src/reusetwin/model.py, with the feed index fixed at 1. Rules are an interval and a threshold on the proxy, chosen by lowest scenario cost on the training length, then frozen. A fixed 30-day interval and the plant's median training gap are the fixed-time comparisons. No cleaning formulation, chemical name, or unpublished control law is stated.
+
+3. Counts
+
+Days 6 to 771. Cutoff 618.
+Eligible segments: train 9, test 4, crossed 3.
+Median training rate 0.000146867 per day. Positive training segments 6 of 9 (0.666667). Median residual sd 0.0534777.
+Held-out segments 4. Negative held-out rates 4 of 4. MAE of terminal K 0.0546853. Mean error, predicted minus observed, -0.0516526.
+Tuned interval 310 days. Tuned threshold 0.94. Plant median interval 40 days. Irreversible loss used 0. Identified: False.
+tuning 612 days, never: cost 0.0836993, cleanings 0, min K 0.914173.
+tuning 612 days, interval_30d: cost 0.102303, cleanings 20, min K 0.99575.
+tuning 612 days, interval_plant_median: cost 0.0966893, cleanings 15, min K 0.994289.
+tuning 612 days, interval_tuned: cost 0.0828942, cleanings 1, min K 0.955633.
+tuning 612 days, threshold_tuned: cost 0.0831645, cleanings 1, min K 0.940042.
+year 365 days, never: cost 0.0821771, cleanings 0, min K 0.947944.
+year 365 days, interval_30d: cost 0.102441, cleanings 12, min K 0.99575.
+year 365 days, interval_plant_median: cost 0.0967915, cleanings 9, min K 0.994289.
+year 365 days, interval_tuned: cost 0.0834172, cleanings 1, min K 0.955633.
+year 365 days, threshold_tuned: cost 0.0821771, cleanings 0, min K 0.947944.
+holdout 153 days, never: cost 0.0808997, cleanings 0, min K 0.977924.
+holdout 153 days, interval_30d: cost 0.102302, cleanings 5, min K 0.99575.
+holdout 153 days, interval_plant_median: cost 0.0933251, cleanings 3, min K 0.994289.
+holdout 153 days, interval_tuned: cost 0.0808997, cleanings 0, min K 0.977924.
+holdout 153 days, threshold_tuned: cost 0.0808997, cleanings 0, min K 0.977924.
+NREL steady state: 6005 rows, runtime max 5 minutes, cleaning column False, used for fit False.
+
+4. Reading
+
+Read the held-out rates before the cost rows. Every held-out window rises, so the median training decay is not confirmed. A cost row that prefers no cleaning, or a long interval, is a scenario under assumed prices on that unconfirmed rate. It is not a measured plant saving and not a cleaning design.
+
+5. What is withheld
+
+The manuscript states the public proxy, the log-linear rate, and the interval and threshold comparison already in this repository. It does not state cleaning chemistry. It has not been uploaded.
+
+Data availability
+
+Su, Yi Hsiang. Auditable clean-in-place decision support from routine single-plant SWRO SCADA: reproducibility deposit. Zenodo, https://doi.org/10.5281/zenodo.21055948, CC-BY-4.0.
+
+Sitterley, Kurban, Zachary Binger, and Scott Jenne. Experimental wave desalination data with variable feed and pressure input. National Renewable Energy Laboratory, Marine and Hydrokinetic Data Repository submission 649, https://mhkdr.openei.org/submissions/649, CC-BY-4.0. Screened, not fitted.

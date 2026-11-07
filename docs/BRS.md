@@ -20,4 +20,4 @@ Utilities and process engineers of industrial water reuse plants.
 In: single-stage fouling twin, cleaning schedule, rate estimator. Out: multi-stage plant hydraulics, scaling chemistry, water quality prediction, control integration.
 
 ## Success measures (on plant data)
-Cost per m3, number of cleanings, minimum permeability, forecast error of days-to-threshold, against the plant's calendar schedule.
+Cost per m3, number of cleanings, minimum permeability, forecast error of days-to-threshold, against the plant's calendar schedule. On the public Su 2026 series the held-out permeability forecast fails, so a cost saving is not claimed. See `docs/TRL.md`.

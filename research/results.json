@@ -1,74 +1,264 @@
 {
-  "note": "synthetic RO twin; policies tuned at fouling scale 1.0 on 20 training years",
-  "tuned": {
-    "interval_days": 80.0,
-    "threshold_true_k": 0.7400000000000002,
-    "threshold_noisy_k": 0.7000000000000002
-  },
-  "fouling_x1.0": {
-    "interval_tuned": {
-      "cost_per_m3": 0.10354842720199825,
-      "cleanings": 4.0,
-      "min_k": 0.6691597439450315
+  "synthetic": {
+    "note": "synthetic RO twin; policies tuned at fouling scale 1.0 on 20 training years",
+    "tuned": {
+      "interval_days": 80.0,
+      "threshold_true_k": 0.7400000000000002,
+      "threshold_noisy_k": 0.7000000000000002
     },
-    "threshold_true_k": {
-      "cost_per_m3": 0.10354315588324284,
-      "cleanings": 4.94,
-      "min_k": 0.7405083735732024
+    "fouling_x1.0": {
+      "interval_tuned": {
+        "cost_per_m3": 0.10354842720199825,
+        "cleanings": 4.0,
+        "min_k": 0.6691597439450319
+      },
+      "threshold_true_k": {
+        "cost_per_m3": 0.10354315588324284,
+        "cleanings": 4.94,
+        "min_k": 0.7405083735732024
+      },
+      "threshold_noisy_k": {
+        "cost_per_m3": 0.1037255136799666,
+        "cleanings": 4.51,
+        "min_k": 0.7099404672408042
+      },
+      "interval_30d_practice": {
+        "cost_per_m3": 0.11508846270746582,
+        "cleanings": 12.0,
+        "min_k": 0.7440025900020634
+      }
     },
-    "threshold_noisy_k": {
-      "cost_per_m3": 0.1037255136799666,
-      "cleanings": 4.51,
-      "min_k": 0.709940467240804
+    "fouling_x1.5": {
+      "interval_tuned": {
+        "cost_per_m3": 0.1118196157092161,
+        "cleanings": 4.0,
+        "min_k": 0.5559774938148105
+      },
+      "threshold_true_k": {
+        "cost_per_m3": 0.11177145646451254,
+        "cleanings": 8.6,
+        "min_k": 0.7404823240674046
+      },
+      "threshold_noisy_k": {
+        "cost_per_m3": 0.11039682310160431,
+        "cleanings": 7.34,
+        "min_k": 0.7026773354802508
+      },
+      "interval_30d_practice": {
+        "cost_per_m3": 0.11796901280369171,
+        "cleanings": 12.0,
+        "min_k": 0.6910553429235065
+      }
     },
-    "interval_30d_practice": {
-      "cost_per_m3": 0.11508846270746581,
-      "cleanings": 12.0,
-      "min_k": 0.7440025900020631
+    "fouling_x0.6": {
+      "interval_tuned": {
+        "cost_per_m3": 0.09756414823594473,
+        "cleanings": 4.0,
+        "min_k": 0.7756943835912995
+      },
+      "threshold_true_k": {
+        "cost_per_m3": 0.09826580853976125,
+        "cleanings": 2.64,
+        "min_k": 0.7404991394516116
+      },
+      "threshold_noisy_k": {
+        "cost_per_m3": 0.09844384865354255,
+        "cleanings": 2.39,
+        "min_k": 0.7181218676695216
+      },
+      "interval_30d_practice": {
+        "cost_per_m3": 0.11287136284830795,
+        "cleanings": 12.0,
+        "min_k": 0.7866436497419279
+      }
     }
   },
-  "fouling_x1.5": {
-    "interval_tuned": {
-      "cost_per_m3": 0.11181961570921613,
-      "cleanings": 4.0,
-      "min_k": 0.5559774938148102
+  "real": {
+    "dataset": {
+      "name": "Su 2026 de-identified SWRO daily indicators and CIP ledger",
+      "doi": "10.5281/zenodo.21055948",
+      "license": "CC-BY-4.0",
+      "citation": "Su, Yi Hsiang (2026). Zenodo. https://doi.org/10.5281/zenodo.21055948",
+      "proxy": "(1 + flux_pct) / (1 + ndp_pct) on the n3 basis. Non-negative deviations bias this proxy high."
     },
-    "threshold_true_k": {
-      "cost_per_m3": 0.11177145646451254,
-      "cleanings": 8.6,
-      "min_k": 0.7404823240674044
+    "screened_out": {
+      "nrel_wave_ro_steady_state": {
+        "citation": "Sitterley, Binger, and Jenne, NREL, MHKDR submission 649",
+        "url": "https://mhkdr.openei.org/submissions/649",
+        "license": "CC-BY-4.0",
+        "n_rows": 6005,
+        "runtime_minutes_max": 5.0,
+        "has_cleaning_column": false,
+        "used_for_fit": false,
+        "reason": "steady-state transport test lasting minutes, with no cleaning events"
+      },
+      "others": [
+        {
+          "name": "EPA membrane malathion workbook",
+          "doi": "10.23719/1529271",
+          "license": "US public domain (17 USC 105)",
+          "url": "https://doi.org/10.23719/1529271",
+          "used_for_fit": false,
+          "reason": "pre-cleaning and post-cleaning snapshots, not a daily permeability series"
+        },
+        {
+          "name": "Orange County RO membrane fouling data",
+          "doi": "10.7910/DVN/PVY3QD",
+          "license": "CC BY-NC-ND 4.0",
+          "url": "https://doi.org/10.7910/DVN/PVY3QD",
+          "used_for_fit": false,
+          "reason": "non-commercial no-derivatives license; not redistributed and not fitted"
+        },
+        {
+          "name": "Hazen RO facility CIP data",
+          "doi": "10.7910/DVN/VURALX",
+          "license": "CC BY-NC-ND 4.0",
+          "url": "https://doi.org/10.7910/DVN/VURALX",
+          "used_for_fit": false,
+          "reason": "non-commercial no-derivatives license; not redistributed and not fitted"
+        }
+      ]
     },
-    "threshold_noisy_k": {
-      "cost_per_m3": 0.11039682310160433,
-      "cleanings": 7.34,
-      "min_k": 0.7026773354802505
+    "split": {
+      "rule": "eligible inter-CIP segments wholly before the 80% day cutoff are train; wholly after are test; segments that contain the cutoff are unused",
+      "day_min": 6.0,
+      "day_max": 771.0,
+      "cutoff": 618.0,
+      "n_eligible": {
+        "train": 9,
+        "test": 4,
+        "crossed": 3
+      }
     },
-    "interval_30d_practice": {
-      "cost_per_m3": 0.11796901280369171,
-      "cleanings": 12.0,
-      "min_k": 0.6910553429235062
-    }
-  },
-  "fouling_x0.6": {
-    "interval_tuned": {
-      "cost_per_m3": 0.09756414823594473,
-      "cleanings": 4.0,
-      "min_k": 0.7756943835912996
+    "fit": {
+      "kf_per_day": 0.0001468666952929877,
+      "train_rates_per_day": [
+        0.0003432257264573468,
+        0.0003526814044944048,
+        0.0001468666952929877,
+        2.4039829102191123e-05,
+        0.00047633174299074963,
+        -0.0022804403295692667,
+        -0.0027941885845210977,
+        -0.0017021442685858385,
+        0.0014340676426212611
+      ],
+      "fraction_train_rates_positive": 0.6666666666666666,
+      "median_residual_sd": 0.05347770473517559,
+      "feed_index_assumed": 1.0
     },
-    "threshold_true_k": {
-      "cost_per_m3": 0.09826580853976122,
-      "cleanings": 2.64,
-      "min_k": 0.7404991394516116
+    "holdout_prediction": {
+      "n": 4,
+      "mae_k": 0.05468534635747846,
+      "mean_error_k": -0.05165263538828002,
+      "test_rates_per_day": [
+        -0.0005348448906117133,
+        -0.0015769583634104704,
+        -0.0012761723243691406,
+        -0.0019439589707631478
+      ]
     },
-    "threshold_noisy_k": {
-      "cost_per_m3": 0.09844384865354255,
-      "cleanings": 2.39,
-      "min_k": 0.7181218676695217
-    },
-    "interval_30d_practice": {
-      "cost_per_m3": 0.11287136284830795,
-      "cleanings": 12.0,
-      "min_k": 0.786643649741928
+    "schedule_scenario": {
+      "cost_basis": "assumed Params prices; feed index fixed at 1; not plant invoices",
+      "irreversible_used": 0.0,
+      "irreversible_identified": false,
+      "tuned_on_days": 612,
+      "plant_median_interval_days": 40.0,
+      "plant_median_interval_rounded": 40,
+      "interval_days_tuned": 310.0,
+      "interval_at_grid_edge": false,
+      "threshold_k_tuned": 0.94,
+      "threshold_at_grid_edge": false,
+      "tuning": {
+        "horizon_days": 612,
+        "policies": {
+          "never": {
+            "cost_per_m3": 0.08369933272447025,
+            "cleanings": 0,
+            "min_k": 0.91417290558001
+          },
+          "interval_30d": {
+            "cost_per_m3": 0.10230260624444788,
+            "cleanings": 20,
+            "min_k": 0.9957499230851716
+          },
+          "interval_plant_median": {
+            "cost_per_m3": 0.09668929536374717,
+            "cleanings": 15,
+            "min_k": 0.9942885714618472
+          },
+          "interval_tuned": {
+            "cost_per_m3": 0.0828941863888102,
+            "cleanings": 1,
+            "min_k": 0.9556325432110441
+          },
+          "threshold_tuned": {
+            "cost_per_m3": 0.08316449987390223,
+            "cleanings": 1,
+            "min_k": 0.9400418544315124
+          }
+        }
+      },
+      "holdout": {
+        "horizon_days": 153,
+        "policies": {
+          "never": {
+            "cost_per_m3": 0.0808996535168547,
+            "cleanings": 0,
+            "min_k": 0.9779235930798239
+          },
+          "interval_30d": {
+            "cost_per_m3": 0.10230153380589435,
+            "cleanings": 5,
+            "min_k": 0.9957499230851716
+          },
+          "interval_plant_median": {
+            "cost_per_m3": 0.09332506812798678,
+            "cleanings": 3,
+            "min_k": 0.9942885714618472
+          },
+          "interval_tuned": {
+            "cost_per_m3": 0.0808996535168547,
+            "cleanings": 0,
+            "min_k": 0.9779235930798239
+          },
+          "threshold_tuned": {
+            "cost_per_m3": 0.0808996535168547,
+            "cleanings": 0,
+            "min_k": 0.9779235930798239
+          }
+        }
+      },
+      "year": {
+        "horizon_days": 365,
+        "policies": {
+          "never": {
+            "cost_per_m3": 0.08217705316021136,
+            "cleanings": 0,
+            "min_k": 0.947944353692391
+          },
+          "interval_30d": {
+            "cost_per_m3": 0.1024406167748641,
+            "cleanings": 12,
+            "min_k": 0.9957499230851716
+          },
+          "interval_plant_median": {
+            "cost_per_m3": 0.0967914538842511,
+            "cleanings": 9,
+            "min_k": 0.9942885714618472
+          },
+          "interval_tuned": {
+            "cost_per_m3": 0.08341717864870857,
+            "cleanings": 1,
+            "min_k": 0.9556325432110441
+          },
+          "threshold_tuned": {
+            "cost_per_m3": 0.08217705316021136,
+            "cleanings": 0,
+            "min_k": 0.947944353692391
+          }
+        }
+      }
     }
   }
 }
